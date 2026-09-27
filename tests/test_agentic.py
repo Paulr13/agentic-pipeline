@@ -123,10 +123,10 @@ class TestMemory(unittest.TestCase):
     def test_add_recall_roundtrip(self):
         with tempfile.TemporaryDirectory() as td:
             m = Memory(Path(td) / "mem.jsonl")
-            m.add("riley likes q8_0 kv cache", kind="note")
+            m.add("the user prefers q8_0 kv cache", kind="note")
             m.add("postgres wants btree indexes", kind="note")
             hits = m.recall("kv cache quantization", k=1)
-            self.assertEqual(hits[0]["text"], "riley likes q8_0 kv cache")
+            self.assertEqual(hits[0]["text"], "the user prefers q8_0 kv cache")
 
     def test_corrupt_line_survives(self):
         with tempfile.TemporaryDirectory() as td:
